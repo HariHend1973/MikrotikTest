@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 tvResult.setText("");
+                tvResult.scrollTo(0, 0);
             }
         });
 
