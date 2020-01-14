@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     class MyTask extends AsyncTask<Void, String, List<Map<String, String>>> {
-        //ProgressDialog progressDialog;
+
         @Override
         protected List<Map<String, String>> doInBackground(Void... params) {
             List<Map<String, String>> res = null;
@@ -77,29 +77,20 @@ public class MainActivity extends AppCompatActivity {
             publishProgress("Loading...");
 
             try {
-                //List<Map<String, String>> result = null;
                 try
                 {
                     Log.d(LOG_TAG, "start");
 
                     ApiConnection con = ApiConnection.connect(SocketFactory.getDefault(), IPADDR, ApiConnection.DEFAULT_PORT, 2000);
                     Log.d(LOG_TAG, "start2");
-                    con.login("harihend1220", "J1ngkr4k201273");
+                    con.login("user", "pass");
 
                     if(con.isConnected())
                     {
-                        //tvResult.setText("OK!");
                         Log.d(LOG_TAG, "Connected");
                     }
                     res = con.execute("/ip/dhcp-server/lease/print");
-                    //for(Map<String, String>res : result)
-                    //{
-                    //    Log.d(LOG_TAG, res.toString());
-                    //    //tvResult.setText(res.toString());
-                    //}
-
                     Thread.sleep(1000);
-
                     con.close();
                 }
                 catch (Exception e)
@@ -122,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
             tvResult.append("============================\n\n");
             try {
                 for (Map<String, String> res : result) {
-                    //    Log.d(LOG_TAG, res.toString());
-                    //tvResult.append("----------------------------\n");
                     tvResult.setTextSize(14f);
                     tvResult.append("mac-address: " + res.get("mac-address") + "\n");
                     tvResult.append("server: " + res.get("server") + "\n");
@@ -145,10 +134,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //progressDialog = ProgressDialog.show(MainActivity.this,
-            //        "Mikrotik",
-            //        "Loading..");
-            //tvResult.setText("Begin");
             dialog.show();
             Log.d(LOG_TAG, "Begin");
         }
