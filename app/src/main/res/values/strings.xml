@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mikrotik Test DHCPD lease</string>
+    <string name="connect">connect</string>
+    <string name="clear">CLEAR</string>
+    <string name="ip">IP:</string>
+    <string name="ip_address">10.10.10.1</string>
+</resources>
