@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 IPADDR = tvIP.getText().toString();
+                tvResult.setText("");
+                tvResult.scrollTo(0, 0);
                 mt = new MyTask();
                 mt.execute();
             }
